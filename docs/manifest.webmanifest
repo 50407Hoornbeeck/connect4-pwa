@@ -1,8 +1,8 @@
 {
   "name": "Connect 4",
   "short_name": "Connect4",
-  "start_url": "/index.html",
-  "scope": "/",
+  "start_url": "/connect4-pwa/",
+  "scope": "/connect4-pwa/",
   "display": "standalone",
   "background_color": "#0b1220",
   "theme_color": "#0b1220",

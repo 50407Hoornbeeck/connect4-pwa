@@ -384,7 +384,7 @@ async function registerSW() {
     return;
   }
   try {
-    const reg = await navigator.serviceWorker.register('/src/sw.js');
+    navigator.serviceWorker.register("./sw.js", { scope: "./" });
     pwaInfoEl.textContent = 'Offline cache enabled.';
 
     reg.addEventListener('updatefound', () => {
