@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1220" />
+  <meta name="description" content="Connect 4 PWA (offline, installable)" />
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+
+  <title>Connect 4 (PWA)</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="dot red" aria-hidden="true"></span>
+      <span class="dot yellow" aria-hidden="true"></span>
+      <h1>Connect 4</h1>
+      <span class="badge">PWA</span>
+    </div>
+
+    <div class="controls">
+      <label class="toggle">
+        <input id="vsCpu" type="checkbox" />
+        <span>vs CPU</span>
+      </label>
+      <button id="newGame" class="btn">New game</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+
+      <div class="boardWrap">
+        <div class="board" id="board" aria-label="Connect 4 board" role="grid"></div>
+        <div class="colHints" id="colHints" aria-hidden="true"></div>
+      </div>
+
+      <div class="row">
+        <button id="undo" class="btn btnSecondary" disabled>Undo</button>
+        <button id="resetScore" class="btn btnSecondary">Reset score</button>
+      </div>
+
+      <div class="score">
+        <div class="scoreCard">
+          <div class="scoreTitle">Red</div>
+          <div class="scoreValue" id="scoreRed">0</div>
+        </div>
+        <div class="scoreCard">
+          <div class="scoreTitle">Yellow</div>
+          <div class="scoreValue" id="scoreYellow">0</div>
+        </div>
+        <div class="scoreCard">
+          <div class="scoreTitle">Draws</div>
+          <div class="scoreValue" id="scoreDraw">0</div>
+        </div>
+      </div>
+
+      <p class="hint">
+        Tip: click a column (or use 1–7 keys) to drop a disc. Works offline once loaded.
+      </p>
+    </section>
+
+    <section class="panel panelRight">
+      <h2>Rules</h2>
+      <ul>
+        <li>Players alternate placing discs in a 7×6 grid.</li>
+        <li>First to connect 4 in a row (horizontal, vertical, diagonal) wins.</li>
+        <li>If the board fills with no winner: draw.</li>
+      </ul>
+
+      <h2>Install</h2>
+      <ol>
+        <li>Open this site in Chrome/Edge/Safari.</li>
+        <li>Use “Install app” / “Add to Home Screen”.</li>
+      </ol>
+
+      <div class="small" id="pwaInfo"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Offline-ready • No frameworks • Single-file game logic</span>
+  </footer>
+
+  <script type="module" src="/src/app.js"></script>
+</body>
+</html>
