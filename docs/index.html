@@ -84,5 +84,17 @@
   </main>
 
   <script type="module" src="./src/app.js"></script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', async () => {
+      try {
+        await navigator.serviceWorker.register('./sw.js');
+        console.log('SW registered');
+      } catch (e) {
+        console.error('SW register failed', e);
+      }
+    });
+  }
+</script>
 </body>
 </html>
